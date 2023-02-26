@@ -6,7 +6,7 @@
 /*   By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:43:02 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/26 03:11:29 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/02/26 13:19:51 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 static void	*ft_malloc_hook(t_mem_check *mem_check, int *fill_check_memory, t_mem_data data);
 static void	ft_init_check(t_mem_check **mem_check, int *fill_check_memory);
 static void	*ft_free_hook(t_mem_check *mem_check, int *fill_check_memory, t_mem_data data);
-static void	ft_check_at_exit(t_mem_check *mem_check, int *fill_check_memory);
+static void	*ft_check_at_exit(t_mem_check *mem_check, int *fill_check_memory);
 
 void	ft_exit(void)
 {
@@ -43,7 +43,7 @@ void	*ft_alloc(size_t size, const char *file, int line, const char *func, void *
 		if (control == 1)
 			return (ft_free_hook(&(*mem_check), &fill_check_memory, data));
 		if (control == 2)
-			ft_check_at_exit(&(*mem_check), &fill_check_memory);
+			return (ft_check_at_exit(&(*mem_check), &fill_check_memory));
 	}
 	else
 	{
@@ -52,6 +52,7 @@ void	*ft_alloc(size_t size, const char *file, int line, const char *func, void *
 		if (control == 1)
 			return (__libc_free(to_free));
 	}
+	return (NULL);
 }
 
 static void	ft_init_check(t_mem_check **mem_check, int *fill_check_memory)
@@ -84,9 +85,9 @@ static void	ft_init_check(t_mem_check **mem_check, int *fill_check_memory)
 		mem_check = calloc(sizeof(t_mem_check *), 1);
 //		if (!mem_check)
 //			return ;
-		*mem_check->alloc[i] = calloc(sizeof(t_malloc *), 1);
-		if (!(*mem_check)->alloc)
-			return ;
+		(*mem_check)->alloc[i] = calloc(sizeof(t_malloc *), 1);
+//		if (!(*mem_check)->alloc)
+//			return ;
 		(*mem_check)->max_proc = &max_proc;
 		*fill_check_memory = 1;
 	}
@@ -96,7 +97,7 @@ static void	ft_init_check(t_mem_check **mem_check, int *fill_check_memory)
 
 static void	*ft_malloc_hook(t_mem_check *mem_check, int *fill_check_memory, t_mem_data data)
 {
-	void		*result;
+//	void		*result;
 	static int	count = 0;
 //	t_malloc	*m;
 
@@ -108,25 +109,26 @@ static void	*ft_malloc_hook(t_mem_check *mem_check, int *fill_check_memory, t_me
 //	m = mem_check->alloc[mem_check->pid];
 //	result = malloc(mem_check->alloc[mem_check->pid]->size);
 //	mem_check->alloc[mem_check->pid]->p = ft_ptoa((unsigned long long) result);
-	mem_check->alloc[mem_check->pid]->alloc = result;
+//	mem_check->alloc[mem_check->pid]->alloc = result;
 	*fill_check_memory = 1;
 	count++;
 	printf("\t en malloc pid es: %i\n", mem_check->pid);
 //	printf("puntero %p allocado en %s %s:%i process: %i\n en char es [%s]\n", result, mem_check->alloc[mem_check->pid]->file, mem_check->alloc[mem_check->pid]->func, mem_check->alloc[mem_check->pid]->line, mem_check->pid, mem_check->alloc[mem_check->pid]->p);
-	return (result);
+	return (data.alloc);
 }
 
 static void	*ft_free_hook(t_mem_check *mem_check, int *fill_check_memory, t_mem_data data)
 {
+	(void) mem_check;
 	free(data.alloc);
 	*fill_check_memory = 1;
 	return (NULL);
 }
 
-static void	ft_check_at_exit(t_mem_check *mem_check, int *fill_check_memory)
+static void	*ft_check_at_exit(t_mem_check *mem_check, int *fill_check_memory)
 {
-	int			num_malloc;
-	int			num_free;
+//	int			num_malloc;
+//	int			num_free;
 	t_malloc	*tmp;
 	
 //	waitpid((*mem_check)->pid, &num_free, 0);
@@ -138,5 +140,5 @@ static void	ft_check_at_exit(t_mem_check *mem_check, int *fill_check_memory)
 		tmp = tmp->next;
 	}
 	*fill_check_memory = 1;
-//	exit(0);
+	return (NULL);
 }
