@@ -6,7 +6,7 @@
 /*   By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:43:02 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/26 16:52:35 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/02/26 18:28:54 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 static void	*ft_malloc_hook(t_mem_check *mem_check, int *fill_check_memory, t_mem_data data);
 static void	ft_init_check(t_mem_check *mem_check, int *fill_check_memory);
 static void	*ft_free_hook(t_mem_check *mem_check, int *fill_check_memory, t_mem_data data);
-static void	*ft_check_at_exit(t_mem_check *mem_check, int *fill_check_memory);
 
 void	ft_exit(void)
 {
@@ -88,7 +87,7 @@ static void	ft_init_check(t_mem_check *mem_check, int *fill_check_memory)
 		mem_check = calloc(sizeof(t_mem_check *), 1);
 //		if (!mem_check)
 //			return ;
-		mem_check->alloc = calloc(sizeof(t_malloc *), 1);
+	//	mem_check->alloc = calloc(sizeof(t_malloc *), 1);
 //		if (!(*mem_check)->alloc)
 //			return ;
 		mem_check->max_proc = &max_proc;
@@ -106,9 +105,9 @@ static void	*ft_malloc_hook(t_mem_check *mem_check, int *fill_check_memory, t_me
 
 //	r_malloc = dlsym(RTLD_NEXT, "malloc");
 	data.alloc = malloc(data.size);
-	if (count == 0)
-		mem_check->alloc = ft_malloc_new(data);
-	else
+//	if (count == 0)
+//		mem_check->alloc = ft_malloc_new(data);
+//	else
 		ft_malloc_add_back(&(mem_check)->alloc, ft_malloc_new(data));
 	m = ft_malloc_last(mem_check->alloc);
 //	result = malloc(mem_check->alloc[mem_check->pid]->size);
@@ -117,32 +116,17 @@ static void	*ft_malloc_hook(t_mem_check *mem_check, int *fill_check_memory, t_me
 	*fill_check_memory = 1;
 	count++;
 //i	printf("\t en malloc pid es: %i\n", mem_check->pid);
-	printf("puntero %p allocado en %s %s:%i process: \n en char es [%s]\n", data.alloc , m->file, m->func, m->line, m->p);
+//	printf("puntero %p allocado en %s %s:%i process: \n en char es [%s]\n", data.alloc , m->file, m->func, m->line, m->p);
 	return (data.alloc);
 }
 
 static void	*ft_free_hook(t_mem_check *mem_check, int *fill_check_memory, t_mem_data data)
 {
-	(void) mem_check;
-	free(data.alloc);
-	*fill_check_memory = 1;
-	return (NULL);
-}
-
-static void	*ft_check_at_exit(t_mem_check *mem_check, int *fill_check_memory)
-{
-//	int			num_malloc;
-//	int			num_free;
-	t_malloc	*tmp;
 	
-//	waitpid((*mem_check)->pid, &num_free, 0);
-	tmp = mem_check->alloc;
-	printf("\texit process: \n");
-	while (tmp)
-	{
-		printf("\t[%s] memory allocated at: %s %s:%i\n", tmp->p, tmp->file, tmp->func, tmp->line);
-		tmp = tmp->next;
-	}
+	data.p = ft_ptoa((unsigned long long) data.alloc);
+	ft_malloc_add_back(&(mem_check)->free, ft_malloc_new(data));
+	free(data.alloc);
+//	printf("\t punter [%s] liberado en %s %s:%i\n", mem_check->free->p, data.file, data.func, data.line);
 	*fill_check_memory = 1;
 	return (NULL);
 }

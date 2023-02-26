@@ -6,7 +6,7 @@
 /*   By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:46:43 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/26 16:14:05 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/02/26 18:28:49 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@ typedef struct s_malloc
 	void			*alloc;
 	struct s_malloc	*next;
 	struct s_malloc	*prev;
+	int				num_free;
 }	t_malloc;
 
 typedef struct s_mem_check
@@ -57,6 +58,8 @@ typedef struct s_mem_data
 //extern void *__libc_free(void *to_free);
 void		*ft_alloc(size_t size, const char *file, int line, const char *func, void *free, int control);
 void		ft_exit(void);
+void		*ft_check_at_exit(t_mem_check *mem_check, int *fill_check_memory);
+
 /*		t_malloc list functions		*/
 t_malloc	*ft_malloc_new(t_mem_data data);
 t_malloc	*ft_malloc_last(t_malloc *lst);

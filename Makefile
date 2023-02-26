@@ -6,7 +6,7 @@
 #    By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/26 12:58:20 by juan-aga          #+#    #+#              #
-#    Updated: 2023/02/26 17:14:14 by juan-aga         ###   ########.fr        #
+#    Updated: 2023/02/26 18:29:55 by juan-aga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,7 +26,8 @@ OBJ_DIR		= obj/
 _SRC		= 42memory_leaks.c		\
 			  ft_malloc_lst.c		\
 			  ft_malloc_lst_del.c	\
-			  ptoa.c
+			  ptoa.c				\
+			  ft_at_exit.c
 
 SRC			= ${addprefix ${SRC_DIR}, ${_SRC}}
 
