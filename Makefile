@@ -6,7 +6,7 @@
 #    By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/26 12:58:20 by juan-aga          #+#    #+#              #
-#    Updated: 2023/02/26 18:29:55 by juan-aga         ###   ########.fr        #
+#    Updated: 2023/02/26 19:51:52 by juan-aga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -37,6 +37,14 @@ HEADERS		= -I include/
 
 ifdef D
 	CFLAGS += -g
+endif
+
+#		check sistem	#
+UNAME_S		:= $(shell uname -s)
+ifeq ($(UNAME_S), Linux)
+	_SRC += ft_linux.c
+else
+	_SRC += ft_mac.c
 endif
 
 #		COLORS		#

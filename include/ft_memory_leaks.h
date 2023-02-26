@@ -6,7 +6,7 @@
 /*   By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:46:43 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/26 18:28:49 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/02/26 19:52:56 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@
 # include <sys/resource.h>
 
 # define malloc(X) ft_alloc(X, __FILE__, __LINE__, __FUNCTION__, NULL, 0)
-# define free(X) ft_alloc(0, __FILE__, __LINE__, __FUNCTION__, X, 1)
+# define calloc(X, Y) ft_alloc(X * Y, __FILE__, __LINE__, __FUNCTION__, NULL, 1)
+# define free(X) ft_alloc(0, __FILE__, __LINE__, __FUNCTION__, X, 2)
 # define ft_memory_leaks ft_exit
 
 typedef struct s_malloc
@@ -59,6 +60,11 @@ typedef struct s_mem_data
 void		*ft_alloc(size_t size, const char *file, int line, const char *func, void *free, int control);
 void		ft_exit(void);
 void		*ft_check_at_exit(t_mem_check *mem_check, int *fill_check_memory);
+
+/*		functions depends of system	*/
+void		*ft_real_malloc(size_t size);
+void		*ft_real_calloc(size_t size);
+void		ft_real_free(void *p);
 
 /*		t_malloc list functions		*/
 t_malloc	*ft_malloc_new(t_mem_data data);
