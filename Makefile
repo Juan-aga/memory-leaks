@@ -6,7 +6,7 @@
 #    By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/26 12:58:20 by juan-aga          #+#    #+#              #
-#    Updated: 2023/02/26 13:31:24 by juan-aga         ###   ########.fr        #
+#    Updated: 2023/02/26 17:14:14 by juan-aga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,9 +16,8 @@ CC			= gcc ${CFLAGS} ${HEADERS}
 
 AR			= ar -rcs
 
-CFLAGS		= -Wall -Wextra -Werror
-
-RM			= rm -Rf 
+CFLAGS		= -Wall -Wextra -Werror 
+RM			= rm -Rf
 
 SRC_DIR		= src/
 
@@ -47,7 +46,7 @@ CRESET			=\033[0m
 
 ${OBJ_DIR}%.o: ${SRC_DIR}%.c
 			@mkdir -p obj
-			@${CC} -c $<  -o $@ && printf "${CGREEN}Compiling: ${CYELLOW}$(notdir $<\n)"
+			@${CC} ${CFLAGS} -c $<  -o $@ && printf "${CGREEN}Compiling: ${CYELLOW}$(notdir $<\n)"
 
 all:		${NAME}
 
