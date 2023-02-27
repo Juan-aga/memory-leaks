@@ -6,7 +6,7 @@
 /*   By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 22:05:18 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/26 16:40:42 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:33:48 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ char	*ft_ptoa(unsigned long long n)
 	char	*str;
 
 	len = ft_len(n);
-	str = (char *) calloc((len + 1),  sizeof(char));
+	str = (char *) calloc((len + 1), sizeof(char));
 	if (!str)
 		return (NULL);
 	return (ft_fill(str, len - 1, n));
@@ -32,7 +32,6 @@ static int	ft_len(unsigned long long n)
 	int	i;
 
 	i = 3;
-
 	while (n > 15)
 	{
 		n /= 16;

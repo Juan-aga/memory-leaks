@@ -6,7 +6,7 @@
 /*   By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 19:22:23 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/26 19:59:19 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/02/27 14:38:28 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 void	*ft_real_malloc(size_t size)
 {
-	static void*	(*real_malloc)(size_t) = NULL;
+	static void	*(*real_malloc)(size_t) = NULL;
 
 	if (!real_malloc)
 		real_malloc = dlsym(RTLD_NEXT, "malloc");
@@ -24,7 +24,7 @@ void	*ft_real_malloc(size_t size)
 
 void	*ft_real_calloc(size_t size)
 {
-	static void*	(*real_calloc)(size_t, size_t) = NULL;
+	static void	*(*real_calloc)(size_t, size_t) = NULL;
 
 	if (!real_calloc)
 		real_calloc = dlsym(RTLD_NEXT, "calloc");

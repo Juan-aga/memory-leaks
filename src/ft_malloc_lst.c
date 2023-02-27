@@ -6,7 +6,7 @@
 /*   By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:03:45 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/26 17:19:09 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/02/27 12:37:57 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,7 @@ t_malloc	*ft_malloc_new(t_mem_data data)
 	lst->p = ft_ptoa((unsigned long long) data.alloc);
 	lst->alloc = data.alloc;
 	lst->num_free = 0;
+	lst->num_alloc = 0;
 	lst->next = NULL;
 	lst->prev = NULL;
 	return (lst);

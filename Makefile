@@ -6,7 +6,7 @@
 #    By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/26 12:58:20 by juan-aga          #+#    #+#              #
-#    Updated: 2023/02/26 19:51:52 by juan-aga         ###   ########.fr        #
+#    Updated: 2023/02/27 13:52:34 by juan-aga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,7 +27,9 @@ _SRC		= 42memory_leaks.c		\
 			  ft_malloc_lst.c		\
 			  ft_malloc_lst_del.c	\
 			  ptoa.c				\
-			  ft_at_exit.c
+			  ft_at_exit.c			\
+			  ft_at_exit_utils.c	\
+			  ft_report.c
 
 SRC			= ${addprefix ${SRC_DIR}, ${_SRC}}
 
