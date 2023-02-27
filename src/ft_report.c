@@ -6,7 +6,7 @@
 /*   By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 13:44:38 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/27 14:35:27 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/02/27 15:41:08 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ void	ft_report(t_mem_check *mem_check, t_mem_report *mem_report)
 	tmp = mem_check->free;
 	if (mem_report->not_allocated)
 		ft_not_allocated(tmp);
+	printf("\n");
 }
 
 static void	ft_leaks(t_malloc *tmp)
