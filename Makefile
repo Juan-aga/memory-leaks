@@ -6,7 +6,7 @@
 #    By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/26 12:58:20 by juan-aga          #+#    #+#              #
-#    Updated: 2023/02/27 13:52:34 by juan-aga         ###   ########.fr        #
+#    Updated: 2023/02/28 12:19:57 by juan-aga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,10 @@ SRC_DIR		= src/
 
 OBJ_DIR		= obj/
 
-_SRC		= 42memory_leaks.c		\
+_SRC		= ft_memory_leaks.c		\
 			  ft_malloc_lst.c		\
 			  ft_malloc_lst_del.c	\
-			  ptoa.c				\
+			  ft_ntoa.c				\
 			  ft_at_exit.c			\
 			  ft_at_exit_utils.c	\
 			  ft_report.c
@@ -39,6 +39,10 @@ HEADERS		= -I include/
 
 ifdef D
 	CFLAGS += -g
+endif
+
+ifdef LOG
+	CFLAGS += -D LOG=1
 endif
 
 #		check sistem	#

@@ -6,15 +6,17 @@
 /*   By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 13:44:38 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/27 15:41:08 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:16:17 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_memory_leaks.h"
+#include <fcntl.h>
 
 static void	ft_leaks(t_malloc *tmp);
 static void	ft_double_free(t_mem_check *mem_check);
 static void	ft_not_allocated(t_malloc *tmp);
+static void	ft_report_file(pid_t pid);
 
 void	ft_report(t_mem_check *mem_check, t_mem_report *mem_report)
 {
@@ -22,6 +24,8 @@ void	ft_report(t_mem_check *mem_check, t_mem_report *mem_report)
 	t_malloc	*tmp;
 
 	pid = getpid();
+	if (LOG)
+		ft_report_file(pid);
 	printf("\n\tMemory leaks report for process: %i\n\n", pid);
 	printf("\tProcess: %i\tmemory leaks:\t\t%i\n", pid, mem_report->leaks);
 	printf("\tProcess: %i\tdouble free:\t\t%i\n", pid, mem_report->double_free);
@@ -86,4 +90,25 @@ static void	ft_not_allocated(t_malloc *tmp)
 				tmp->p, tmp->file, tmp->func, tmp->line);
 		tmp = tmp->next;
 	}
+}
+
+static void	ft_report_file(pid_t pid)
+{
+	char	*file;
+	int		fd;
+
+	file = ft_itoa_unsigned(pid);
+	fd = open(file, O_CREAT | O_RDWR | O_TRUNC, 0644);
+	if (fd < 0)
+	{
+		free(file);
+		return ;
+	}
+//	tmp = strjoin("leaks_report_", file);
+//	free (file);
+//	file = strjoin(tmp, ".log");
+//	free(tmp);
+	printf("file is: %s\n", file);
+	dup2(fd, 1);
+	free(file);
 }

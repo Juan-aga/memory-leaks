@@ -46,6 +46,7 @@ ft_memry_leaks.a
 *.su
 *.idb
 *.pdb
+*.log
 
 # Kernel Module Compile Results
 *.mod*

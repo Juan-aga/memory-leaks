@@ -6,7 +6,7 @@
 /*   By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:46:43 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/27 14:15:21 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:18:33 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,11 @@
 # define calloc(X, Y) ft_alloc(X * Y, __FILE__, __LINE__, __FUNCTION__, NULL, 1)
 # define free(X) ft_alloc(0, __FILE__, __LINE__, __FUNCTION__, X, 2)
 # define ft_memory_leaks ft_exit
+/*	if LOG is 1 it does the report to file
+	if LOG is 0 show the report in the screem */
+# ifndef LOG
+#  define LOG 0
+# endif
 
 typedef struct s_malloc
 {
@@ -86,4 +91,5 @@ void		ft_malloc_delone(t_malloc *lst);
 void		ft_malloc_clear(t_malloc *lst);
 /*		utils						*/
 char		*ft_ptoa(unsigned long long n);
+char		*ft_itoa_unsigned(int n);
 #endif
