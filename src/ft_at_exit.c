@@ -6,11 +6,11 @@
 /*   By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 17:15:41 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/27 14:41:52 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:47:23 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_memory_leaks.h"
+#include "memory_leaks.h"
 
 static void	ft_free_all(t_mem_check *mem_check, t_mem_report *mem_report);
 static void	ft_exit_report(t_mem_check *mem_check, t_mem_report *mem_report);

@@ -6,11 +6,11 @@
 /*   By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 22:05:18 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/28 11:44:00 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:48:55 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_memory_leaks.h"
+#include "memory_leaks.h"
 
 static char	*ft_fill(char *str, int len, unsigned long long n,
 				unsigned long long base);

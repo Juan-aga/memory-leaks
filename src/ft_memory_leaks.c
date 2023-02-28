@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   42memory_leaks.c                                   :+:      :+:    :+:   */
+/*   ft_memory_leaks.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:43:02 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/27 12:16:14 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:48:40 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_memory_leaks.h"
+#include "memory_leaks.h"
 
 static void	*ft_malloc_hook(t_mem_check *mem_check, int *fill_check_memory,
 				t_mem_data data, int control);

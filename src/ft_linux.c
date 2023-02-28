@@ -6,11 +6,11 @@
 /*   By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/26 19:49:24 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/28 10:50:48 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:47:46 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_memory_leaks.h"
+#include "memory_leaks.h"
 
 extern void	*__libc_malloc(size_t size);
 extern void	*__libc_calloc(size_t size, size_t t);

@@ -6,11 +6,11 @@
 /*   By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 16:03:45 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/27 12:37:57 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:48:14 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_memory_leaks.h"
+#include "memory_leaks.h"
 
 t_malloc	*ft_malloc_new(t_mem_data data)
 {

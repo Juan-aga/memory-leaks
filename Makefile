@@ -6,11 +6,11 @@
 #    By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/26 12:58:20 by juan-aga          #+#    #+#              #
-#    Updated: 2023/02/28 12:19:57 by juan-aga         ###   ########.fr        #
+#    Updated: 2023/02/28 12:46:25 by juan-aga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME		= ft_memory_leaks.a
+NAME		= memory_leaks.a
 
 CC			= gcc ${CFLAGS} ${HEADERS}
 
@@ -79,4 +79,4 @@ fclean:		clean
 
 re:			fclean all
 
-.PHONY:		all clean fclean re bonus
+.PHONY:		all clean fclean re
