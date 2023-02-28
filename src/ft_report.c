@@ -6,7 +6,7 @@
 /*   By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 13:44:38 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/28 12:16:17 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:22:30 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,10 +104,6 @@ static void	ft_report_file(pid_t pid)
 		free(file);
 		return ;
 	}
-//	tmp = strjoin("leaks_report_", file);
-//	free (file);
-//	file = strjoin(tmp, ".log");
-//	free(tmp);
 	printf("file is: %s\n", file);
 	dup2(fd, 1);
 	free(file);
