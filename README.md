@@ -10,12 +10,12 @@ You have to include memory_leaks.h in all your headers files that calls malloc, 
 It only can trace the memory allocations if it's included in all the header. Otherwise it could be information that can't trace.
 
 It shows the final report, by default, in the standar output.
-If you nedd the report go to a file, you can compile with "make LOG".
+If you need the report go to a file, you can compile with "make LOG".
 It creates a report file named "PID_PROCESS.log".
 
 # MAC
 
-No nedd special attention to use.
+No need special attention to use.
 
 # LINUX
 
