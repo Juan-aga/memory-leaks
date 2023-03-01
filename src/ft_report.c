@@ -6,7 +6,7 @@
 /*   By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 13:44:38 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/03/01 08:31:57 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/03/01 09:44:11 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,6 +104,6 @@ static void	ft_report_file(pid_t pid)
 		free(file);
 		return ;
 	}
-	dup2(fd, 1);
+	dup2(fd, STDOUT_FILENO);
 	free(file);
 }
