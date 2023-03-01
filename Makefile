@@ -6,7 +6,7 @@
 #    By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/26 12:58:20 by juan-aga          #+#    #+#              #
-#    Updated: 2023/02/28 12:46:25 by juan-aga         ###   ########.fr        #
+#    Updated: 2023/03/01 08:27:27 by juan-aga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,7 +16,8 @@ CC			= gcc ${CFLAGS} ${HEADERS}
 
 AR			= ar -rcs
 
-CFLAGS		= -Wall -Wextra -Werror 
+CFLAGS		= -Wall -Wextra -Werror
+
 RM			= rm -Rf
 
 SRC_DIR		= src/
