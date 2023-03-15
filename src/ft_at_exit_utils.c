@@ -6,11 +6,11 @@
 /*   By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 12:31:52 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/27 14:40:16 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/02/28 12:47:35 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_memory_leaks.h"
+#include "memory_leaks.h"
 
 void	ft_count_free(t_mem_check *mem_check)
 {

@@ -6,11 +6,11 @@
 /*   By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 13:44:38 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/28 12:22:30 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/03/01 09:44:11 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_memory_leaks.h"
+#include "memory_leaks.h"
 #include <fcntl.h>
 
 static void	ft_leaks(t_malloc *tmp);
@@ -104,7 +104,6 @@ static void	ft_report_file(pid_t pid)
 		free(file);
 		return ;
 	}
-	printf("file is: %s\n", file);
-	dup2(fd, 1);
+	dup2(fd, STDOUT_FILENO);
 	free(file);
 }

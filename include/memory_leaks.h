@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_memory_leaks.h                                  :+:      :+:    :+:   */
+/*   memory_leaks.h                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/25 14:46:43 by juan-aga          #+#    #+#             */
-/*   Updated: 2023/02/28 12:18:33 by juan-aga         ###   ########.fr       */
+/*   Updated: 2023/03/01 09:43:15 by juan-aga         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_MEMORY_LEAKS_H
-# define FT_MEMORY_LEAKS_H
+#ifndef MEMORY_LEAKS_H
+# define MEMORY_LEAKS_H
 
 # include <stdlib.h>
 # include <stdio.h>
