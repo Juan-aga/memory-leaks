@@ -6,7 +6,7 @@
 #    By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/26 12:58:20 by juan-aga          #+#    #+#              #
-#    Updated: 2023/03/01 09:28:55 by juan-aga         ###   ########.fr        #
+#    Updated: 2023/03/15 11:40:18 by juan-aga         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -48,10 +48,10 @@ endif
 
 #		check sistem	#
 UNAME_S		:= $(shell uname -s)
-ifeq ($(UNAME_S), Linux)
-	_SRC += ft_linux.c
-else
+ifeq ($(UNAME_S), Darwin)
 	_SRC += ft_mac.c
+else
+	_SRC += ft_linux.c
 endif
 
 #		COLORS		#
