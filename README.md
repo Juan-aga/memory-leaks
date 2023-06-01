@@ -1,24 +1,26 @@
 # memory_leaks
 
-This is a library to check the memory leaks.
+memory_leaks is a library to check for memory leaks in C programs.
 
-At the exit of the program, it returns a report with the leaks.
+## Usage
 
-# Use
+1. Include the `memory_leaks.h` header file in all your header files that contain calls to `malloc`, `calloc`, or `free` functions. Make sure to include this header file in all relevant files to ensure accurate tracing of memory allocations.
 
-You have to include memory_leaks.h in all your headers files that calls malloc, calloc or free.
-It only can trace the memory allocations if it's included in all the header. Otherwise it could be information that can't trace.
+2. At the exit of the program, memory_leaks will generate a report with any detected memory leaks. By default, the report is displayed in the standard output.
 
-It shows the final report, by default, in the standar output.
-If you need the report go to a file, you can compile with "make LOG".
-It creates a report file named "PID_PROCESS.log".
+3. Optional: If you want to save the report to a file, you can compile the program with the `make LOG` command. This will create a report file named `PID_PROCESS.log`, where `PID` is the process ID of the program.
 
-# MAC
+## Platform-specific Notes
 
-No need special attention to use.
+### MAC
 
-# LINUX
+No special attention is required when using MemoryLeaks on MAC systems.
 
-If you have problems to compile, make sure that you have build-essential installed.
+### LINUX
 
-You can install it using "sudo apt install build-essential"
+If you encounter compilation issues, make sure that you have the `build-essential` package installed. You can install it by running the following command:
+
+```
+sudo apt install build-essential
+```
+This package provides essential tools for building software on LINUX systems.
