@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_ntoa.c                                          :+:      :+:    :+:   */
+/*   mem_leak_ntoa.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,33 +12,33 @@
 
 #include "memory_leaks.h"
 
-static char	*ft_fill(char *str, int len, unsigned long long n,
+static char	*mem_leak_fill(char *str, int len, unsigned long long n,
 				unsigned long long base);
-static int	ft_len(unsigned long long n);
+static int	mem_leak_len(unsigned long long n);
 
-char	*ft_ptoa(unsigned long long n)
+char	*mem_leak_ptoa(unsigned long long n)
 {
 	int		len;
 	char	*str;
 
-	len = ft_len(n) + 2;
+	len = mem_leak_len(n) + 2;
 	str = (char *) calloc((len + 1), sizeof(char));
 	if (!str)
 		return (NULL);
-	return (ft_fill(str, len - 1, n, 16));
+	return (mem_leak_fill(str, len - 1, n, 16));
 }
 
-char	*ft_itoa_unsigned(int n)
+char	*mem_leak_itoa_unsigned(int n)
 {
 	int		len;
 	char	*str;
 
 	n = (unsigned long long) n;
-	len = ft_len(n);
+	len = mem_leak_len(n);
 	str = (char *) calloc((len + 5), sizeof(char));
 	if (!str)
 		return (NULL);
-	str = ft_fill(str, len, n, 10);
+	str = mem_leak_fill(str, len, n, 10);
 	str[++len] = '.';
 	str[++len] = 'l';
 	str[++len] = 'o';
@@ -46,7 +46,7 @@ char	*ft_itoa_unsigned(int n)
 	return (str);
 }
 
-static int	ft_len(unsigned long long n)
+static int	mem_leak_len(unsigned long long n)
 {
 	int	i;
 
@@ -59,7 +59,7 @@ static int	ft_len(unsigned long long n)
 	return (i);
 }
 
-static char	*ft_fill(char *str, int len, unsigned long long n,
+static char	*mem_leak_fill(char *str, int len, unsigned long long n,
 		unsigned long long base)
 {
 	while (n >= base)

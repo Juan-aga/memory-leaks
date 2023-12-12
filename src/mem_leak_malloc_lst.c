@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_malloc_lst.c                                    :+:      :+:    :+:   */
+/*   mem_leak_malloc_lst.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "memory_leaks.h"
 
-t_malloc	*ft_malloc_new(t_mem_data data)
+t_malloc	*mem_leak_malloc_new(t_mem_data data)
 {
 	t_malloc	*lst;
 
@@ -23,7 +23,7 @@ t_malloc	*ft_malloc_new(t_mem_data data)
 	lst->line = data.line;
 	lst->file = data.file;
 	lst->func = data.func;
-	lst->p = ft_ptoa((unsigned long long) data.alloc);
+	lst->p = mem_leak_ptoa((unsigned long long) data.alloc);
 	lst->alloc = data.alloc;
 	lst->num_free = 0;
 	lst->num_alloc = 0;
@@ -32,7 +32,7 @@ t_malloc	*ft_malloc_new(t_mem_data data)
 	return (lst);
 }
 
-t_malloc	*ft_malloc_last(t_malloc *lst)
+t_malloc	*mem_leak_malloc_last(t_malloc *lst)
 {
 	t_malloc	*tmp;
 
@@ -45,7 +45,7 @@ t_malloc	*ft_malloc_last(t_malloc *lst)
 	return (tmp);
 }
 
-void	ft_malloc_add_back(t_malloc **lst, t_malloc *new)
+void	mem_leak_malloc_add_back(t_malloc **lst, t_malloc *new)
 {
 	t_malloc	*last;
 
@@ -56,12 +56,12 @@ void	ft_malloc_add_back(t_malloc **lst, t_malloc *new)
 		*lst = new;
 		return ;
 	}
-	last = ft_malloc_last(*lst);
+	last = mem_leak_malloc_last(*lst);
 	last->next = new;
 	new->prev = last;
 }
 
-int	ft_malloc_size(t_malloc *lst)
+int	mem_leak_malloc_size(t_malloc *lst)
 {
 	int	i;
 

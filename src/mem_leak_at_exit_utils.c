@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_at_exit_utils.c                                 :+:      :+:    :+:   */
+/*   mem_leak_at_exit_utils.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "memory_leaks.h"
 
-void	ft_count_free(t_mem_check *mem_check)
+void	mem_leak_count_free(t_mem_check *mem_check)
 {
 	t_malloc	*m;
 	t_malloc	*f;
@@ -23,7 +23,7 @@ void	ft_count_free(t_mem_check *mem_check)
 		f = mem_check->free;
 		while (f)
 		{
-			if (!ft_strcmp(m->p, f->p))
+			if (!mem_leak_strcmp(m->p, f->p))
 				m->num_free += 1;
 			f = f->next;
 		}
@@ -31,7 +31,7 @@ void	ft_count_free(t_mem_check *mem_check)
 	}
 }
 
-void	ft_count_alloc(t_malloc *lst1, t_malloc *lst2)
+void	mem_leak_count_alloc(t_malloc *lst1, t_malloc *lst2)
 {
 	t_malloc	*m;
 	t_malloc	*d;
@@ -42,7 +42,7 @@ void	ft_count_alloc(t_malloc *lst1, t_malloc *lst2)
 		d = lst2;
 		while (d)
 		{
-			if (!ft_strcmp(m->p, d->p))
+			if (!mem_leak_strcmp(m->p, d->p))
 				m->num_alloc += 1;
 			d = d->next;
 		}
@@ -50,7 +50,7 @@ void	ft_count_alloc(t_malloc *lst1, t_malloc *lst2)
 	}
 }
 
-int	ft_strcmp(char *s1, char *s2)
+int	mem_leak_strcmp(char *s1, char *s2)
 {
 	int	i;
 

@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_malloc_lst_del.c                                :+:      :+:    :+:   */
+/*   mem_leak_malloc_lst_del.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan-aga <juan-aga@student.42malaga.com>   +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -12,7 +12,7 @@
 
 #include "memory_leaks.h"
 
-void	ft_malloc_delone(t_malloc *lst)
+void	mem_leak_malloc_delone(t_malloc *lst)
 {
 	if (!lst)
 		return ;
@@ -31,7 +31,7 @@ void	ft_malloc_delone(t_malloc *lst)
 	free((lst));
 }
 
-void	ft_malloc_clear(t_malloc *lst)
+void	mem_leak_malloc_clear(t_malloc *lst)
 {
 	t_malloc	*tmp;
 
@@ -40,6 +40,6 @@ void	ft_malloc_clear(t_malloc *lst)
 	{
 		tmp = lst;
 		lst = (lst)->next;
-		ft_malloc_delone(tmp);
+		mem_leak_malloc_delone(tmp);
 	}
 }

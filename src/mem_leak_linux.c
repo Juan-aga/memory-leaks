@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_linux.c                                         :+:      :+:    :+:   */
+/*   mem_leak_linux.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -16,17 +16,17 @@ extern void	*__libc_malloc(size_t size);
 extern void	*__libc_calloc(size_t size, size_t t);
 extern void	__libc_free(void *to_free);
 
-void	*ft_real_malloc(size_t size)
+void	*mem_leak_real_malloc(size_t size)
 {
 	return (__libc_malloc(size));
 }
 
-void	*ft_real_calloc(size_t size)
+void	*mem_leak_real_calloc(size_t size)
 {
 	return (__libc_calloc(size, 1));
 }
 
-void	ft_real_free(void *p)
+void	mem_leak_real_free(void *p)
 {
 	__libc_free(p);
 }

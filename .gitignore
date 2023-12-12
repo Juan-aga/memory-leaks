@@ -1,6 +1,6 @@
 .vscode/
 *.swp
-ft_memry_leaks.a
+mem_leak_memry_leaks.a
 
 # Prerequisites
 *.d

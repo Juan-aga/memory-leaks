@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_mac.c                                           :+:      :+:    :+:   */
+/*   mem_leak_mac.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: juan-aga <juan_aga@student.42malaga.c      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -13,7 +13,7 @@
 #include "memory_leaks.h"
 #include <dlfcn.h>
 
-void	*ft_real_malloc(size_t size)
+void	*mem_leak_real_malloc(size_t size)
 {
 	static void	*(*real_malloc)(size_t) = NULL;
 
@@ -22,7 +22,7 @@ void	*ft_real_malloc(size_t size)
 	return (real_malloc(size));
 }
 
-void	*ft_real_calloc(size_t size)
+void	*mem_leak_real_calloc(size_t size)
 {
 	static void	*(*real_calloc)(size_t, size_t) = NULL;
 
@@ -31,7 +31,7 @@ void	*ft_real_calloc(size_t size)
 	return (real_calloc(size, 1));
 }
 
-void	ft_real_free(void *p)
+void	mem_leak_real_free(void *p)
 {
 	static void	(*real_free)(void*) = NULL;
 

@@ -24,13 +24,13 @@ SRC_DIR		= src/
 
 OBJ_DIR		= obj/
 
-_SRC		= ft_memory_leaks.c		\
-			  ft_malloc_lst.c		\
-			  ft_malloc_lst_del.c	\
-			  ft_ntoa.c				\
-			  ft_at_exit.c			\
-			  ft_at_exit_utils.c	\
-			  ft_report.c
+_SRC		= memory_leaks.c		\
+			  mem_leak_malloc_lst.c		\
+			  mem_leak_malloc_lst_del.c	\
+			  mem_leak_ntoa.c				\
+			  mem_leak_at_exit.c			\
+			  mem_leak_at_exit_utils.c	\
+			  mem_leak_report.c
 
 SRC			= ${addprefix ${SRC_DIR}, ${_SRC}}
 
@@ -49,9 +49,9 @@ endif
 #		check sistem	#
 UNAME_S		:= $(shell uname -s)
 ifeq ($(UNAME_S), Darwin)
-	_SRC += ft_mac.c
+	_SRC += mem_leak_mac.c
 else
-	_SRC += ft_linux.c
+	_SRC += mem_leak_linux.c
 endif
 
 #		COLORS		#
